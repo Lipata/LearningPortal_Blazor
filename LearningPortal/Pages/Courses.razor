@@ -1,0 +1,607 @@
+@page "/courses"
+@using LearningApp
+@using Models.LearningApp
+@inject ILearningAppService LearningAppService
+
+<div class="row-layout courses-container">
+    <div class="row-layout group">
+        <div class="column-layout group_1">
+            <h6 class="content">
+                Courses
+            </h6>
+            <IgbList class="list" courses-scope>
+                @foreach (var item in _learningAppAllCourses)
+                {
+                    <IgbListItem>
+                        <div>
+                            <div class="row-layout group_2">
+                                <img src="@item.Image" class="image" />
+                                <div class="column-layout group_3">
+                                    <p class="typography__subtitle-2 content">
+                                        @item.Course
+                                    </p>
+                                    <p class="typography__caption text">
+                                        @item.Intro
+                                    </p>
+                                    <div class="row-layout group_4">
+                                        <IgbRating Value="@item.Rating" Size="SizableComponentSize.Small" class="rating" courses-scope></IgbRating>
+                                        <IgbChip Size="SizableComponentSize.Large" class="chip" courses-scope>
+                                            @item.Level
+                                        </IgbChip>
+                                        <IgbChip Size="SizableComponentSize.Large" class="chip" courses-scope>
+                                            @item.Tag
+                                        </IgbChip>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </IgbListItem>
+                }
+            </IgbList>
+        </div>
+    </div>
+    <div class="row-layout group_5">
+        <div class="column-layout group_6">
+            <div class="row-layout group_7">
+                <img src="assets/course1.svg" class="image_1" />
+                <div class="column-layout group_8">
+                    <h5 class="h5">
+                        Web Development Basics
+                    </h5>
+                    <div class="row-layout group_9">
+                        <IgbRating Value="@_value" Size="SizableComponentSize.Medium" Change="@(e => _value = (double)e.Detail)" class="rating" courses-scope></IgbRating>
+                        <IgbChip Size="SizableComponentSize.Large" class="chip" courses-scope>
+                            Beginner
+                        </IgbChip>
+                        <IgbChip Size="SizableComponentSize.Large" class="chip" courses-scope>
+                            Front-end
+                        </IgbChip>
+                    </div>
+                    <div class="column-layout group_10">
+                        <p class="typography__body-2 text">
+                            HTML, CSS, and JavaScript: The basics of web development. If you’re looking to get started on front-end development, this course is for you. You'll find it particularly useful if you're coming from some other area of software development. 
+                        </p>
+                        <p class="typography__body-2 text">
+                            We will then dive deep into each technology, exploring concepts like forms and controls in HTML, OOP in JavaScript, and the most important CSS patterns to make your web pages look good.
+                        </p>
+                    </div>
+                    <div class="row-layout group_11">
+                        <IgbAvatar Src="assets/Avatar14.png" Size="SizableComponentSize.Medium" Shape="AvatarShape.Circle" class="avatar avatar_1" courses-scope></IgbAvatar>
+                        <div class="column-layout group_12">
+                            <p class="typography__subtitle-2 content">
+                                Susy Berenson
+                            </p>
+                            <p class="typography__body-2 text_1">
+                                Senior Full-Stack Dev.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-layout group_13">
+                <h6 class="content">
+                    Course Content
+                </h6>
+                <div class="row-layout group_14">
+                    <span class="material-icons icon">
+                        book
+                    </span>
+                    <p class="typography__body-1 text_2">
+                        40 lectures
+                    </p>
+                    <span class="material-icons icon">
+                        access_time
+                    </span>
+                    <p class="typography__body-1 content">
+                        8 hours
+                    </p>
+                </div>
+            </div>
+            <div class="column-layout group_15">
+                <IgbAccordion SingleExpand="true" class="accordion" courses-scope>
+                    <IgbExpansionPanel>
+                        <IgbList class="list_1" courses-scope>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_1" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Welcome to Web Development Basics</div>
+                                <span slot="end" class="material-icons icon_1">
+                                    check_circle
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_2" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Downloadable Course Resources</div>
+                                <span slot="end" class="material-icons icon_1">
+                                    check_circle
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_3" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Setup and Software Requirements</div>
+                                <span slot="end" class="material-icons icon_1">
+                                    check_circle
+                                </span>
+                            </IgbListItem>
+                        </IgbList>
+                        <span slot="title">Quick Introduction</span>
+                    </IgbExpansionPanel>
+                    <IgbExpansionPanel>
+                        <IgbList class="list_1" courses-scope>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_4" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Getting to Know HTML Tags</div>
+                                <span slot="end" class="material-icons icon_1">
+                                    check_circle
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_5" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Viewing HTML Tags in Page Source</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_6" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Components and Structure of a Website</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_7" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Adding Tag Attributes</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                        </IgbList>
+                        <span slot="title">Basics of HTML Elements</span>
+                    </IgbExpansionPanel>
+                    <IgbExpansionPanel>
+                        <IgbList class="list_1" courses-scope>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_8" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Setting Up a Basic HTML Page</div>
+                                <span slot="end" class="material-icons icon_1">
+                                    check_circle
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_9" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Creating Links and Formatting Text</div>
+                                <span slot="end" class="material-icons icon_1">
+                                    check_circle
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_10" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Adding Basic Page Content</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_11" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Browser Favicon</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                        </IgbList>
+                        <span slot="title">Creating an HTML Page</span>
+                    </IgbExpansionPanel>
+                    <IgbExpansionPanel>
+                        <IgbList class="list_1" courses-scope>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_12" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">CSS Basics - Part 1</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_13" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">CSS Basics - Part 2</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_14" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Getting Started with External CSS</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_15" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Common CSS Properties</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_16" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Setting Colors with CSS</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                        </IgbList>
+                        <span slot="title">Basic Styling with CSS</span>
+                    </IgbExpansionPanel>
+                    <IgbExpansionPanel>
+                        <IgbList class="list_1" courses-scope>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_17" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Adding Paragraphs</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_18" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Creating Line Breaks</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_19" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Working with Headings</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_20" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Good Practices</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                        </IgbList>
+                        <span slot="title">Paragraph and Heading Tags</span>
+                    </IgbExpansionPanel>
+                    <IgbExpansionPanel>
+                        <IgbList class="list_1" courses-scope>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_21" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Inserting Images With the &lt;img&gt; Tag</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_22" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Image Attributes</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_23" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Image Formatting</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                        </IgbList>
+                        <span slot="title">Working With Images</span>
+                    </IgbExpansionPanel>
+                    <IgbExpansionPanel>
+                        <IgbList class="list_1" courses-scope>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_24" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Creating an Unordered List</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_25" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Unordered List Sub-Levels</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_26" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Creating an Ordered List</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_27" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Formating Lists</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                        </IgbList>
+                        <span slot="title">Ordered and Unordered Lists</span>
+                    </IgbExpansionPanel>
+                    <IgbExpansionPanel>
+                        <IgbList class="list_1" courses-scope>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_28" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Basics of HTML Tables &amp; Examples</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_29" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Creating a Basic HTML Table</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_30" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Creating a Basic HTML Table</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_31" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Additional Table Formatting</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                        </IgbList>
+                        <span slot="title">Creating HTML Tables</span>
+                    </IgbExpansionPanel>
+                    <IgbExpansionPanel>
+                        <IgbList class="list_1" courses-scope>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_32" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Introduction to Forms</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_33" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Creating HTML Input Text Controls</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_34" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Creating HTML Form Labels</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_35" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Adding an HTML Form Button to Submit Form Data</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                        </IgbList>
+                        <span slot="title">Creating Forms</span>
+                    </IgbExpansionPanel>
+                    <IgbExpansionPanel>
+                        <IgbList class="list_1" courses-scope>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_36" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Static vs. Dynamic Webpages</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_37" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">JavaScript Basics: Fundamental Syntax</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_38" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Using Alerts and Prompts</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_39" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Events</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar slot="start" Shape="AvatarShape.Circle" class="avatar_1_40" courses-scope>
+                                    <span class="material-icons">
+                                        play_circle_outline
+                                    </span>
+                                </IgbAvatar>
+                                <div slot="title">Testing JavaScript</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    playlist_play
+                                </span>
+                            </IgbListItem>
+                        </IgbList>
+                        <span slot="title">Introduction to JavaScript</span>
+                    </IgbExpansionPanel>
+                </IgbAccordion>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<AllCoursesType> _learningAppAllCourses = new();
+    private double _value = 4;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _learningAppAllCourses = await LearningAppService.GetAllCoursesList();
+        await base.OnInitializedAsync();
+    }
+}
